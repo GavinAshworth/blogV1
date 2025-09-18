@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: "MyFont"; /* Name you’ll use in Tailwind */
+    src: url("assets/fonts/Jersey15-Regular.ttf") format("truetype");
+    font-weight: 400; /* adjust if you have multiple weights */
+    font-style: normal;
+}
