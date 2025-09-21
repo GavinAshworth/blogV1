@@ -5,6 +5,8 @@ import type { Week } from "../data/types";
 import arrowSprite from "../assets/Art/Arrow.png";
 // @ts-ignore
 import lebronSprite from "../assets/Art/Lebron.gif";
+// @ts-ignore
+import coconutTreeSprite from "../assets/Art/CoconutTree.png";
 
 export default function WeekPage() {
     const { weekNumber } = useParams();
@@ -90,7 +92,27 @@ export default function WeekPage() {
                 </header>
 
                 {/* Video & Content Blocks */}
-                {renderContentBlock("Set of the Week", week.setOfTheWeek)}
+                {/* Set of the Week with coconut tree */}
+                <section className="relative bg-white rounded-xl p-6 md:p-8 shadow-md border-2 border-blue-200 font-myFont">
+                    {/* Coconut Tree in top-right */}
+                    <img
+                        src={coconutTreeSprite}
+                        alt="Coconut tree"
+                        className="absolute top-[-4px] right-0 w-20 h-20  transform -translate-y-24 -translate-x-12  scale-150"
+                    />
+
+                    <h2 className="text-3xl font-bold mb-3 text-blue-900 font-myFont">
+                        Set of the Week
+                    </h2>
+                    <h3 className="text-xl font-semibold text-blue-700 font-myFont">
+                        {week.setOfTheWeek.title}
+                    </h3>
+                    {week.setOfTheWeek.description && (
+                        <p className="mt-2 text-lg font-myFont">{week.setOfTheWeek.description}</p>
+                    )}
+                    {week.setOfTheWeek.video && renderVideo(week.setOfTheWeek.video)}
+                </section>
+
                 {renderContentBlock("Blob of the Week", week.blobOfTheWeek)}
                 {renderContentBlock("Slob of the Week", week.slobOfTheWeek)}
 
