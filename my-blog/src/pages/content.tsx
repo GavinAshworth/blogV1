@@ -3,6 +3,8 @@ import weeks from "../data/weeks";
 import type { Week } from "../data/types";
 // @ts-ignore
 import arrowSprite from "../assets/Art/Arrow.png";
+// @ts-ignore
+import lebronSprite from "../assets/Art/Lebron.gif";
 
 export default function WeekPage() {
     const { weekNumber } = useParams();
@@ -35,21 +37,30 @@ export default function WeekPage() {
         <div className="min-h-screen bg-gradient-to-b from-blue-100 via-blue-300 to-blue-800 font-myFont text-gray-800 p-6">
             <div className="max-w-4xl mx-auto space-y-16">
                 <header className="text-center space-y-2">
-                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-wider text-blue-900 drop-shadow-lg font-myFont flex justify-center space-x-1">
-                        {Array.from("Hoop's Dive").map((char, index) => (
-                            <span
-                                key={index}
-                                className="inline-block animate-wave"
-                                style={{animationDelay: `${index * 0.1}s`}}
-                            >
-                                {char === " " ? "\u00A0" : char}
-                            </span>
-                        ))}
-                    </h1>
+                    <div className="flex justify-center items-center gap-4">
+                        {/* Title */}
+                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-wider text-blue-900 drop-shadow-lg font-myFont flex">
+                            {Array.from("Hoop's Dive").map((char, index) => (
+                                <span
+                                    key={index}
+                                    className="inline-block animate-wave"
+                                    style={{animationDelay: `${index * 0.1}s`}}
+                                >
+          {char === " " ? "\u00A0" : char}
+        </span>
+                            ))}
+                        </h1>
+
+                        {/* Lebron Sprite */}
+                        <img
+                            src={lebronSprite}
+                            alt="Lebron sprite"
+                            className="w-16 h-16 md:w-20 md:h-20 drop-shadow-lg"
+                        />
+                    </div>
 
                     {/* Week number with arrows */}
                     <div className="flex justify-center items-center gap-4">
-                        {/* Left arrow (prev) */}
                         <button
                             onClick={goToPrevWeek}
                             className={weekIndex > 0 ? "visible" : "invisible"}
@@ -65,7 +76,6 @@ export default function WeekPage() {
                             Week {week.weekNumber}
                         </h2>
 
-                        {/* Right arrow (next) */}
                         <button
                             onClick={goToNextWeek}
                             className={weekIndex < weeks.length - 1 ? "visible" : "invisible"}
@@ -149,7 +159,7 @@ function renderVideo(src: string) {
     return (
         <div className="mt-6 rounded-lg overflow-hidden border-2 border-blue-300 shadow-lg">
             <video controls className="w-full">
-                <source src={src} type="video/mp4" />
+                <source src={src} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
         </div>
