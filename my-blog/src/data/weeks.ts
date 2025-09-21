@@ -128,7 +128,7 @@ const weeks: Week[] = [
         },
         basketballReel: {
             title: "Reel of the Week",
-            video: sampleVid,
+            video: "https://www.instagram.com/reel/DHwRzl4PysV/"
         },
         drillOfTheWeek: {
             title: "Closeout Drill",

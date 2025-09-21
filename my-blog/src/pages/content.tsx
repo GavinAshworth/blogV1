@@ -178,12 +178,36 @@ function renderQuote(title: string, block: any) {
 }
 
 function renderVideo(src: string) {
+    // If it's an Instagram link, embed instead of using <video>
+    if (src.indexOf("instagram.com/reel") !== -1) {
+        // Extract the Reel ID (everything after /reel/ before / or ?)
+        const match = src.match(/instagram\.com\/reel\/([^/?]+)/);
+        const reelId = match ? match[1] : null;
+
+        if (!reelId) return null;
+
+        return (
+            <div className="mt-6 aspect-[4/5] w-full">
+                <iframe
+                    src={`https://www.instagram.com/reel/${reelId}/embed`}
+                    width="100%"
+                    height="100%"
+                    allowFullScreen
+                    frameBorder="0"
+                    className="rounded-lg shadow-lg w-full h-full"
+                ></iframe>
+            </div>
+        );
+    }
+
+    // Otherwise, assume it's a local mp4
     return (
         <div className="mt-6 rounded-lg overflow-hidden border-2 border-blue-300 shadow-lg">
-            <video controls playsInline className="w-full">
-                <source src={src} type="video/mp4"/>
+            <video controls className="w-full">
+                <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>
     );
+
 }
