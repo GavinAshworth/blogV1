@@ -203,7 +203,7 @@ function renderVideo(src: string) {
     // Otherwise, assume it's a local mp4
     return (
         <div className="mt-6 rounded-lg overflow-hidden border-2 border-blue-300 shadow-lg">
-            <video controls className="w-full">
+            <video controls playsInline className="w-full">
                 <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
