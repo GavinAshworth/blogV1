@@ -113,8 +113,8 @@ export default function WeekPage() {
                     {week.setOfTheWeek.video && renderVideo(week.setOfTheWeek.video)}
                 </section>
 
-                {renderContentBlock("Blob of the Week", week.blobOfTheWeek)}
-                {renderContentBlock("Slob of the Week", week.slobOfTheWeek)}
+                {renderContentBlock("BLOB of the Week", week.blobOfTheWeek)}
+                {renderContentBlock("SLOB of the Week", week.slobOfTheWeek)}
 
                 {/* Quotes */}
                 {renderQuote("Quote (Sports)", week.quoteSports)}
@@ -178,20 +178,16 @@ function renderQuote(title: string, block: any) {
 }
 
 function renderVideo(src: string) {
-    // If it's an Instagram link, embed instead of using <video>
+    // Instagram Reels
     if (src.indexOf("instagram.com/reel") !== -1) {
-        // Extract the Reel ID (everything after /reel/ before / or ?)
         const match = src.match(/instagram\.com\/reel\/([^/?]+)/);
         const reelId = match ? match[1] : null;
-
         if (!reelId) return null;
 
         return (
             <div className="mt-6 aspect-[4/5] w-full">
                 <iframe
                     src={`https://www.instagram.com/reel/${reelId}/embed`}
-                    width="100%"
-                    height="100%"
                     allowFullScreen
                     frameBorder="0"
                     className="rounded-lg shadow-lg w-full h-full"
@@ -200,7 +196,32 @@ function renderVideo(src: string) {
         );
     }
 
-    // Otherwise, assume it's a local mp4
+    // YouTube Videos
+    if (src.indexOf("youtube.com") !== -1 || src.indexOf("youtu.be") !== -1) {
+        let videoId = "";
+        if (src.indexOf("youtube.com") !== -1) {
+            const params = new URLSearchParams(src.split("?")[1]);
+            videoId = params.get("v") || "";
+        } else if (src.indexOf("youtu.be") !== -1) {
+            videoId = src.split("/").pop() || "";
+        }
+
+        if (!videoId) return null;
+
+        return (
+            <div className="mt-6 aspect-video w-full">
+                <iframe
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    frameBorder="0"
+                    className="rounded-lg shadow-lg w-full h-full"
+                ></iframe>
+            </div>
+        );
+    }
+
+    // Local MP4
     return (
         <div className="mt-6 rounded-lg overflow-hidden border-2 border-blue-300 shadow-lg">
             <video controls playsInline className="w-full">
