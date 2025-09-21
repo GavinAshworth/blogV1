@@ -120,7 +120,7 @@ export default function WeekPage() {
                 {renderQuote("Quote (Sports)", week.quoteSports)}
                 {renderQuote("Quote (Philosophy)", week.quotePhilosophy)}
 
-                {renderContentBlock("Basketball Reel of the Week", week.basketballReel)}
+                {renderContentBlock("Content of the Week", week.basketballReel)}
                 {renderContentBlock("Drill of the Week", week.drillOfTheWeek)}
 
                 {/* Podcast */}
@@ -188,6 +188,24 @@ function renderVideo(src: string) {
             <div className="mt-6 aspect-[4/5] w-full">
                 <iframe
                     src={`https://www.instagram.com/reel/${reelId}/embed`}
+                    allowFullScreen
+                    frameBorder="0"
+                    className="rounded-lg shadow-lg w-full h-full"
+                ></iframe>
+            </div>
+        );
+    }
+
+    // Instagram Posts (videos)
+    if (src.indexOf("instagram.com/p/") !== -1) {
+        const match = src.match(/instagram\.com\/p\/([^/?]+)/);
+        const postId = match ? match[1] : null;
+        if (!postId) return null;
+
+        return (
+            <div className="mt-6 aspect-[4/5] w-full">
+                <iframe
+                    src={`https://www.instagram.com/p/${postId}/embed`}
                     allowFullScreen
                     frameBorder="0"
                     className="rounded-lg shadow-lg w-full h-full"

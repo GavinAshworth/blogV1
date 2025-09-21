@@ -31,8 +31,8 @@ const weeks: Week[] = [
             video: "",
         },
         basketballReel: {
-            title: "Reel of the Week",
-            video: sampleVid,
+            title: "Payton Pritchard discusses his off-season skill development process",
+            video: "https://www.instagram.com/p/DEiX85wznQh/",
         },
         drillOfTheWeek: {
             title: "Closeout Drill",
