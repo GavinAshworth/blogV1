@@ -98,7 +98,7 @@ export default function WeekPage() {
                     <img
                         src={coconutTreeSprite}
                         alt="Coconut tree"
-                        className="absolute top-[-4px] right-0 w-20 h-20  transform -translate-y-24 -translate-x-12  scale-150"
+                        className="absolute top-[-4px] right-0 w-20 h-20  transform -translate-y-24 -translate-x-12  scale-150 "
                     />
 
                     <h2 className="text-3xl font-bold mb-3 text-blue-900 font-myFont">
