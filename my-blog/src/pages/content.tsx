@@ -102,7 +102,7 @@ export default function WeekPage() {
                     />
 
                     <h2 className="text-3xl font-bold mb-3 text-blue-900 font-myFont">
-                        Set of the Week
+                        Set/Action of the Week
                     </h2>
                     <h3 className="text-xl font-semibold text-blue-700 font-myFont">
                         {week.setOfTheWeek.title}
