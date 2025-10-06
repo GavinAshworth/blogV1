@@ -42,7 +42,7 @@ const weeks: Week[] = [
         },
         podcastOfTheWeek: {
             title: "Understanding Fear and Anxiety in High Performance, Finding Flow States, and Attributions of Success and Failures",
-            description: "Dr. Gio Valiante discusses the science behind fear and its relationships with performance and confidence. An excellent listen for anyone, athlete or not, who is interested in better understanding how to manage and understand the bodies fear response in an effort to achieve more consistent performance in any field. Dr. Gio also delves into how coaches can best support their athletes journey by being intentional with language and practice design to best facilitate an environment in which athletes do not develop negative fear responses.",
+            description: "Dr. Gio Valiante discusses the science behind fear and its relationships with performance and confidence. An excellent listen for anyone, athlete or not, who is interested in better understanding how to manage and understand the body's fear response in an effort to achieve more consistent performance in any field. Dr. Gio also delves into how coaches can best support their athlete's journey by being intentional with language and practice design to best facilitate an environment in which athletes do not develop negative fear responses.",
             link: "https://www.slappinglass.com/2025/01/13/gio_valiante_fear_anxiety_flow_states/",
         },
         bonusVideo: {
